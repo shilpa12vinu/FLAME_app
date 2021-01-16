@@ -3,6 +3,7 @@
 #include<stdlib.h>
 #include<string.h>
 #define PI 3.14159265358979323846
+/* CODE TO SIMULATE PERIODIC BC */
 int  main( ) 
 {
        int n=128,i,j,k,l,q,temp=0;
