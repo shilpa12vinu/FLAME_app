@@ -12,7 +12,7 @@ int  main( )
        FILE * pFile;
        FILE * pFile_init;
        FILE * pFile_ana;
-       double test,  constant=1.0, t_final=1.0, dt= 0.00001, x, dx,power, ic, u_f, ex;
+       double  constant=1.0, t_final=1.0, dt= 0.00001, x, dx,power, ic,  ex;
 
        dx = (L/n);
 

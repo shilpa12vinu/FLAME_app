@@ -13,7 +13,7 @@ int  main( )
        FILE * pFile;
        FILE * pFile_init;
        FILE * pFile_ana;
-       double test,  constant=1.0, t_final=1.0, dt= 0.00001, x, dx,power, ic, u_f, ex;
+       double constant=1.0, t_final=1.0, dt= 0.00001, x, dx,power, ic, ex;
 
        dx = (L/n);
 
@@ -81,7 +81,7 @@ int  main( )
              if(j==t1)
                {   
                  char new_file[]="test";                      /*Writting file with required  parameters*/
-                 sprintf(file_index,"%d",time[temp]);    
+                 sprintf(file_index,"%d",time[temp]);         /*Assigning file name as per the time step*/
                  strcat(new_file,file_index);
                  pFile = fopen (new_file,"w");
                  for(k=0;k<=n;k++)                                 /*Through each nodal points*/
@@ -89,8 +89,8 @@ int  main( )
                       int mode=2;                                  /*Solving Analytical Equation*/
                       ex= -1*pow(mode,2)*pow(PI,2)*(t1*dt);
                       x=k*dx; 
-                      u_a[k] = (sin(2*PI*x))*exp(ex);
-                      err[k]=(u_a[k]-u[k]);                        /*Computing average error and absolute error*/
+                      u_a[k] = (sin(2*PI*x))*exp(ex);              /*Computing the analytical value of diffusion*/
+                      err[k]=(u_a[k]-u[k]);                        /*Computing absolute error*/
                       abs_err[k]=fabs(err[k]);
                       fprintf(pFile,"%f \t %lf \t %lf \t %lf \t %lf \n",x,u[k],u_a[k],err[k],abs_err[k]);
                     }
